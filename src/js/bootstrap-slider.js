@@ -655,7 +655,13 @@ const windowIsDefined = (typeof window === "object");
 					this._removeClass(tooltip, 'right');
 					this._removeClass(tooltip, 'left');
 					this._removeClass(tooltip, 'top');
-				}, this);
+                }, this);
+
+                if (Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) { 
+                    for (i = 0; i < this.options.ticks_labels.length; i++) {        
+                        this.tickLabels[i].innerHTML = this.options.ticks_labels[i]
+                    }
+                }
 			}
 
 			if(this.options.orientation === 'vertical') {
